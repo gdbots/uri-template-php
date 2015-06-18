@@ -11,6 +11,7 @@ UriTemplateService::registerTemplates([
     'vevo:playlist.canonical' => 'http://www.vevo.com/watch/playlist/{vevo_playlist_id}',
     'vevo:video.canonical' => 'http://www.vevo.com/watch/{vevo_video_id}',
     'vevo:video.player_url' => 'http://videoplayer.vevo.com/embed/Embedded?videoId={vevo_video_id}&playlist=false&autoplay=0&playerType=embedded',
+    'vine:playlist.canonical' => 'https://vine.co/playlists/{vine_playlist_id}',
     'vine:video.canonical' => 'https://vine.co/v/{vine_video_id}',
     'vine:video.player_url' => 'https://vine.co/v/{vine_video_id}/card',
     'vine:video.oembed' => 'https://vine.co/oembed.{format}?url=https%3A%2F%2Fvine.co%2Fv%2F{vine_video_id}',
