@@ -18,9 +18,10 @@ UriTemplateService::registerTemplates([
 
     /*
      * oembed for vevo?
+     * embed for vevo playlist?
      */
     'vevo:playlist.canonical' => 'http://www.vevo.com/watch/playlist/{vevo_playlist_id}',
-    'vevo:playlist.embed' => 'https://scache.vevo.com/assets/html/embed.html?video={vevo_playlist_id}&autoplay={autoplay}',
+    //'vevo:playlist.embed' => 'https://scache.vevo.com/assets/html/embed.html?video={vevo_playlist_id}&autoplay={autoplay}',
     'vevo:video.canonical' => 'http://www.vevo.com/watch/{vevo_video_id}',
     'vevo:video.embed' => 'https://scache.vevo.com/assets/html/embed.html?video={vevo_video_id}&autoplay={autoplay}',
 
