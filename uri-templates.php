@@ -13,7 +13,7 @@ UriTemplateService::registerTemplates([
      * @link https://instagram.com/developer/embedding/
      */
     'instagram:media.canonical' => 'https://instagram.com/p/{media_id}',
-    'instagram:media.embed' => 'https//instagram.com/p/{media_id}/embed/',
+    'instagram:media.embed' => 'https://instagram.com/p/{media_id}/embed/',
     'instagram:media.oembed' => 'https://api.instagram.com/publicapi/oembed/?url=http%3A%2F%2Finstagr.am%2Fp%2F{media_id}%2F',
 
     /*
