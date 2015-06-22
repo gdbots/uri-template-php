@@ -3,9 +3,6 @@
  * Library of common uri templates.
  */
 
-// todo: setup optional params for templates where possible (oembed width/height for example)
-// todo: review do these embed and players work on mobile?
-
 use \Gdbots\UriTemplate\UriTemplateService;
 
 UriTemplateService::registerTemplates([
