@@ -1,4 +1,10 @@
-# uri-template-php
+uri-template-php
+=============
+
+[![Build Status](https://api.travis-ci.org/gdbots/uri-template-php.svg)](https://travis-ci.org/gdbots/uri-template-php)
+[![Code Climate](https://codeclimate.com/github/gdbots/uri-template-php/badges/gpa.svg)](https://codeclimate.com/github/gdbots/uri-template-php)
+[![Test Coverage](https://codeclimate.com/github/gdbots/uri-template-php/badges/coverage.svg)](https://codeclimate.com/github/gdbots/uri-template-php/coverage)
+
 UriTemplate expander for php and a library of common uri templates.
 
 
