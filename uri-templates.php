@@ -11,7 +11,7 @@ UriTemplateService::registerTemplates([
      */
     'instagram:media.canonical' => 'https://instagram.com/p/{media_id}',
     'instagram:media.embed' => 'https://instagram.com/p/{media_id}/embed/',
-    'instagram:media.oembed' => 'https://api.instagram.com/publicapi/oembed/?url=http%3A%2F%2Finstagr.am%2Fp%2F{media_id}%2F',
+    'instagram:media.oembed' => 'https://api.instagram.com/publicapi/oembed/?url=https%3A%2F%2Finstagr.am%2Fp%2F{media_id}%2F',
 
     /*
      * oembed for vevo?
@@ -34,10 +34,10 @@ UriTemplateService::registerTemplates([
      * time codes too?
      * rel=0&amp;controls=0&amp;showinfo=0
      */
-    'youtube:playlist.canonical' => 'http://www.youtube.com/watch?v={video_id}&amp;list={playlist_id}',
+    'youtube:playlist.canonical' => 'https://www.youtube.com/watch?v={video_id}&amp;list={playlist_id}',
     'youtube:playlist.embed' => 'https://www.youtube.com/embed/{video_id}?list={playlist_id}',
-    'youtube:playlist.oembed' => 'http://www.youtube.com/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D{video_id}%26list%3D{playlist_id}&amp;format={format}',
-    'youtube:video.canonical' => 'http://www.youtube.com/watch?v={video_id}',
+    'youtube:playlist.oembed' => 'https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D{video_id}%26list%3D{playlist_id}&amp;format={format}',
+    'youtube:video.canonical' => 'https://www.youtube.com/watch?v={video_id}',
     'youtube:video.embed' => 'https://www.youtube.com/embed/{video_id}',
-    'youtube:video.oembed' => 'http://www.youtube.com/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D{video_id}&amp;format={format}',
+    'youtube:video.oembed' => 'https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D{video_id}&amp;format={format}',
 ]);

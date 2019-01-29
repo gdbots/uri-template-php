@@ -2,10 +2,10 @@
 
 namespace Gdbots\UriTemplate;
 
-class UriTemplateService
+final class UriTemplateService
 {
     /**
-     * The parser/expander of uri templates.
+     * The parser/provider of uri templates.
      * @var UriTemplate
      */
     protected static $provider;
@@ -28,16 +28,17 @@ class UriTemplateService
     /**
      * Expand the URI template (the id) using the supplied variables
      *
-     * @param string $id  URI Template to expand
+     * @param string $id        URI Template to expand
      * @param array  $variables Variables to use with the expansion
      *
      * @return string Returns the expanded template
      */
-    public static function expand($id, array $variables = [])
+    public static function expand(string $id, array $variables = []): ?string
     {
         if (!self::hasTemplate($id)) {
             return null;
         }
+
         $variables = array_merge(self::$globalVariables, $variables);
         return self::getProvider()->expand(self::$templates[$id], $variables);
     }
@@ -45,7 +46,7 @@ class UriTemplateService
     /**
      * @param UriTemplate $provider
      */
-    public static function setProvider(UriTemplate $provider)
+    public static function setProvider(UriTemplate $provider): void
     {
         self::$provider = $provider;
     }
@@ -53,19 +54,21 @@ class UriTemplateService
     /**
      * @return UriTemplate
      */
-    public static function getProvider()
+    public static function getProvider(): UriTemplate
     {
         if (null === self::$provider) {
             self::$provider = new GuzzleUriTemplate();
         }
+
         return self::$provider;
     }
 
     /**
      * @param string $id
+     *
      * @return bool
      */
-    public static function hasTemplate($id)
+    public static function hasTemplate(string $id): bool
     {
         return isset(self::$templates[$id]);
     }
@@ -76,7 +79,7 @@ class UriTemplateService
      * @param string $id
      * @param string $template
      */
-    public static function registerTemplate($id, $template)
+    public static function registerTemplate(string $id, string $template): void
     {
         self::$templates[$id] = $template;
     }
@@ -85,14 +88,15 @@ class UriTemplateService
      * Registers an array of id => uri template values to the service.  e.g.:
      * ['youtube:video.canonical' => 'https://www.youtube.com/watch?v={youtube_video_id}']
      *
-     * @param array $templates
+     * @param string[] $templates
      */
-    public static function registerTemplates(array $templates)
+    public static function registerTemplates(array $templates): void
     {
         if (empty(self::$templates)) {
             self::$templates = $templates;
             return;
         }
+
         self::$templates = array_merge(self::$templates, $templates);
     }
 
@@ -101,9 +105,9 @@ class UriTemplateService
      * Will override the current value if it exists.
      *
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      */
-    public static function registerGlobal($name, $value)
+    public static function registerGlobal(string $name, $value): void
     {
         self::$globalVariables[$name] = $value;
     }
@@ -114,12 +118,13 @@ class UriTemplateService
      *
      * @param array $globalVariables
      */
-    public static function registerGlobals(array $globalVariables)
+    public static function registerGlobals(array $globalVariables): void
     {
         if (empty(self::$globalVariables)) {
             self::$globalVariables = $globalVariables;
             return;
         }
+
         self::$globalVariables = array_merge(self::$globalVariables, $globalVariables);
     }
 }
