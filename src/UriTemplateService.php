@@ -1,21 +1,18 @@
 <?php
+declare(strict_types=1);
 
 namespace Gdbots\UriTemplate;
 
 final class UriTemplateService
 {
-    /**
-     * The parser/provider of uri templates.
-     * @var UriTemplate
-     */
-    protected static $provider;
+    protected static ?UriTemplate $provider = null;
 
     /**
      * All the available uri templates keyed by an id.
      * @link http://tools.ietf.org/html/rfc6570
      * @var string[]
      */
-    protected static $templates = [];
+    protected static array $templates = [];
 
     /**
      * Variables that will be merged with all expand requests.  Useful
@@ -23,7 +20,7 @@ final class UriTemplateService
      * templates that have internal urls.
      * @var array
      */
-    protected static $globalVariables = [];
+    protected static array $globalVariables = [];
 
     /**
      * Expand the URI template (the id) using the supplied variables
@@ -43,42 +40,20 @@ final class UriTemplateService
         return self::getProvider()->expand(self::$templates[$id], $variables);
     }
 
-    /**
-     * @param UriTemplate $provider
-     */
-    public static function setProvider(UriTemplate $provider): void
-    {
-        self::$provider = $provider;
-    }
-
-    /**
-     * @return UriTemplate
-     */
     public static function getProvider(): UriTemplate
     {
         if (null === self::$provider) {
-            self::$provider = new GuzzleUriTemplate();
+            self::$provider = new UriTemplate();
         }
 
         return self::$provider;
     }
 
-    /**
-     * @param string $id
-     *
-     * @return bool
-     */
     public static function hasTemplate(string $id): bool
     {
         return isset(self::$templates[$id]);
     }
 
-    /**
-     * Registers a new uri template or overrides an existing one.
-     *
-     * @param string $id
-     * @param string $template
-     */
     public static function registerTemplate(string $id, string $template): void
     {
         self::$templates[$id] = $template;
