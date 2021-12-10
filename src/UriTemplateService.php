@@ -28,7 +28,7 @@ final class UriTemplateService
      * @param string $id        URI Template to expand
      * @param array  $variables Variables to use with the expansion
      *
-     * @return string Returns the expanded template
+     * @return string|null Returns the expanded template
      */
     public static function expand(string $id, array $variables = []): ?string
     {
@@ -82,7 +82,7 @@ final class UriTemplateService
      * @param string $name
      * @param mixed  $value
      */
-    public static function registerGlobal(string $name, $value): void
+    public static function registerGlobal(string $name, mixed $value): void
     {
         self::$globalVariables[$name] = $value;
     }

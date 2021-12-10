@@ -1,8 +1,6 @@
 uri-template-php
 =============
 
-[![Build Status](https://api.travis-ci.org/gdbots/uri-template-php.svg)](https://travis-ci.org/gdbots/uri-template-php)
-
 UriTemplate expander for php and a library of common uri templates.
 
 

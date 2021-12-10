@@ -36,7 +36,7 @@ final class UriTemplate
 
     public function expand(string $template, array $variables): string
     {
-        if (false === strpos($template, '{')) {
+        if (!str_contains($template, '{')) {
             return $template;
         }
 
@@ -74,7 +74,7 @@ final class UriTemplate
                 $varspec['value'] = substr($value, 0, $colonPos);
                 $varspec['modifier'] = ':';
                 $varspec['position'] = (int)substr($value, $colonPos + 1);
-            } elseif (substr($value, -1) === '*') {
+            } elseif (str_ends_with($value, '*')) {
                 $varspec['modifier'] = '*';
                 $varspec['value'] = substr($value, 0, -1);
             } else {
@@ -114,7 +114,7 @@ final class UriTemplate
             $expanded = '';
 
             if (is_array($variable)) {
-                $isAssoc = $this->isAssoc($variable);
+                $isAssoc = !array_is_list($variable);
                 $kvp = [];
                 foreach ($variable as $key => $var) {
                     if ($isAssoc) {
@@ -201,23 +201,6 @@ final class UriTemplate
         }
 
         return $ret;
-    }
-
-    /**
-     * Determines if an array is associative.
-     *
-     * This makes the assumption that input arrays are sequences or hashes.
-     * This assumption is a tradeoff for accuracy in favor of speed, but it
-     * should work in almost every case where input is supplied for a URI
-     * template.
-     *
-     * @param array $array Array to check
-     *
-     * @return bool
-     */
-    private function isAssoc(array $array): bool
-    {
-        return $array && array_keys($array)[0] !== 0;
     }
 
     /**
